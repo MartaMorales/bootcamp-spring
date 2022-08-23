@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- Al bean hay que ponerle un id, el que sea, y especificar la clase java a la que se refiere. El nombre
+     del id y la clase no tienen porque ser el mismo-->
+    <!--<bean id="calculadora" class="com.example.bootcampspring.introduccion_a_spring.main.calculator.Calculadora" scope="prototype">-->
+    <!--</bean>-->
+
+    <!--<bean id="gestorFacturas" class="com.example.bootcampspring.spring_beans.GestorFacturas">-->
+        <!--<constructor-arg name="calculadora" ref="calculadora"/>-->
+    <!--</bean>-->
+
+    <context:component-scan base-package="com.example.bootcampspring" />
+
+</beans>
