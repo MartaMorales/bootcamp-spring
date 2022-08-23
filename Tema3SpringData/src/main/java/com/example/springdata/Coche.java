@@ -1,6 +1,8 @@
 package com.example.springdata;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -8,7 +10,8 @@ public class Coche {
 
     //atributos
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer identifier;
     private Integer year;
     private String manufacturer;
     private String model;
@@ -18,8 +21,8 @@ public class Coche {
     public Coche() {
     }
 
-    public Coche(Long id, Integer year, String manufacturer, String model) {
-        this.id = id;
+    public Coche(Integer id, Integer year, String manufacturer, String model) {
+        this.identifier = id;
         this.year = year;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -28,12 +31,12 @@ public class Coche {
 
     //getter y setter
 
-    public Long getId() {
-        return id;
+    public Integer getId() {
+        return identifier;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Integer id) {
+        this.identifier = id;
     }
 
     public Integer getYear() {
@@ -65,7 +68,7 @@ public class Coche {
     @Override
     public String toString() {
         return "Coche{" +
-                "id=" + id +
+                "id=" + identifier +
                 ", year=" + year +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", model='" + model + '\'' +
