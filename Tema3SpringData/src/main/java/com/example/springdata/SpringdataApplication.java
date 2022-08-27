@@ -15,8 +15,12 @@ public class SpringdataApplication {
         Coche toyota = new Coche(null, 2010, "prius", "toyota");
         cocheRepository.save(toyota);
 
+        System.out.println("El numero de coches en bbdd es: " + cocheRepository.count());
+
         //Recuperar el coche de bbdd
         System.out.println(cocheRepository.findAll());
+
+
     }
 
 }

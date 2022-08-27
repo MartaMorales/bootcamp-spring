@@ -1,9 +1,6 @@
 package com.example.springdata;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Coche {
@@ -11,10 +8,10 @@ public class Coche {
     //atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer identifier;
-    private Integer year;
-    private String manufacturer;
-    private String model;
+    private Integer id;
+    private Integer anio;
+    private String marca;
+    private String modelo;
 
     //constructores
 
@@ -22,45 +19,45 @@ public class Coche {
     }
 
     public Coche(Integer id, Integer year, String manufacturer, String model) {
-        this.identifier = id;
-        this.year = year;
-        this.manufacturer = manufacturer;
-        this.model = model;
+        this.id = id;
+        this.anio = year;
+        this.marca = manufacturer;
+        this.modelo = model;
     }
 
 
     //getter y setter
 
     public Integer getId() {
-        return identifier;
+        return id;
     }
 
     public void setId(Integer id) {
-        this.identifier = id;
+        this.id = id;
     }
 
-    public Integer getYear() {
-        return year;
+    public Integer getAnio() {
+        return anio;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setAnio(Integer anio) {
+        this.anio = anio;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public String getModel() {
-        return model;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
 
@@ -68,10 +65,10 @@ public class Coche {
     @Override
     public String toString() {
         return "Coche{" +
-                "id=" + identifier +
-                ", year=" + year +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", model='" + model + '\'' +
+                "id=" + id +
+                ", anio=" + anio +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
                 '}';
     }
 }
