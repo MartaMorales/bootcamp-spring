@@ -23,14 +23,13 @@ public class LaptopController {
     @GetMapping("/")
     public ResponseEntity<List<Laptop>> findAllLaptops() {
 
-        if (Objects.nonNull(laptopRepository.findAll())) {
-            return ResponseEntity.ok(laptopRepository.findAll());
-        } else
-            return ResponseEntity.notFound().build();
-    }
+        List<Laptop> laptops = laptopRepository.findAll();
+
+        return laptops.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(laptops);
+}
 
     @PostMapping("/")
-    public Laptop createLaptop(@RequestBody Laptop laptop){
+    public Laptop createLaptop(@RequestBody Laptop laptop) {
 
         return laptopRepository.save(laptop);
     }
