@@ -1,20 +1,26 @@
 package com.example.springbootrestdatajpa.entities;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "BOOKS")
+@ApiModel("Entidad libro para representar un elemento didactico compuesto por laminas de celulosa") //Swagger
 public class Book {
 
     // Atributos
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty("Clave ficticia autoincrementada tipo Long") //Swagger
     private Long id;
     private String title;
     private String author;
     private Integer pages;
+    @ApiModelProperty("Precio en euros con dos decimales utilizando el . como separador") //swagger
     private Double price;
     private LocalDate release;
     private boolean online;

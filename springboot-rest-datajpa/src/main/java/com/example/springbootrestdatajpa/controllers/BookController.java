@@ -2,11 +2,14 @@ package com.example.springbootrestdatajpa.controllers;
 
 import com.example.springbootrestdatajpa.entities.Book;
 import com.example.springbootrestdatajpa.repositories.BookRepository;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 import java.util.Objects;
@@ -39,7 +42,9 @@ public class BookController {
 //    }
 
     @GetMapping("/books/{id}")
-    public ResponseEntity<Book> findById(@PathVariable Long id) {
+    @ApiOperation("Buscar un libro por clave primaria id Long") // Describe el metodo en swagger
+    public ResponseEntity<Book> findById(@ApiParam("Clave primaria de tipo Long") // describe el tipo de variable en swagger
+                                         @PathVariable Long id) {
         log.info("Ejecutando metodo buscar por id");
         Optional<Book> book = bookRepository.findById(id);
 
@@ -96,6 +101,7 @@ public class BookController {
         return ResponseEntity.notFound().build();
     }
 
+    @ApiIgnore //ignora este metodo en swagger para que no aparezca en la documentacion
     @DeleteMapping("/books")
     public ResponseEntity<Book> deleteall() {
         log.info("Ejecutando metodo borrar todo");
